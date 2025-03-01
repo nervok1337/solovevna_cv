@@ -1,14 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
-external = np.diag([1, 1, 1, 1]).reshape(4, 2, 2)
-
-internal = np.logical_not(external)
-
-cross = np.array([[[1, 0], [0, 1]], [[0, 1], [1, 0]]])
-
-
 def match(a, masks):
     for mask in masks:
         if np.all(a == mask):
@@ -35,19 +27,19 @@ external = np.array([
     [[0,1],[0,0]],
     [[1,0],[0,0]]
 ])
-
 internal = np.logical_not(external)
 cross = np.array([
     [[1,0],[0,1]],
     [[0,1],[1,0]]
 ])
-image = np.load("example1.npy")
-image[image > 0] = 1
-print(count_objects(image))
 
-image = np.load("example2.npy")
-image[image > 0] = 1
-print(sum([count_objects(image[:,:,i]) for i in range(image.shape[2])]))
+image1 = np.load("example1.npy")
+image1[image1 > 0] = 1
+print(count_objects(image1))
 
-plt.imshow(image)
-plt.show()
+image2 = np.load("example2.npy")
+image2[image2 > 0] = 1
+print(sum([count_objects(image2[:,:,i]) for i in range(image2.shape[2])]))
+
+#plt.imshow(image)
+#plt.show()
