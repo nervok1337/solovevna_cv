@@ -28,8 +28,6 @@ while True:
     total_holes = sum(1 - region.euler_number for region in regions)
 
     if np.max(labeled1) == 4 and np.max(labeled2) == 2 and total_holes == 1:
-        filename = os.path.join(output_folder, f"frame_{cnt:04d}.jpg")
-        cv2.imwrite(filename, frame)
         cnt+=1
 
 print(cnt)
